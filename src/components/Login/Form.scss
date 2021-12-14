@@ -1,0 +1,59 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+    
+
+    .form {
+      background-color: rgba($color: #ffffff, $alpha: 0.5);
+      padding: 15px 55px;
+      border-radius: 10px;
+      
+      &__h1{
+        text-align: center;
+        font-size: 30px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+      &__link{
+          color: blue;
+          font-size: 14px;
+          &:hover{
+              color: rgb(43, 43, 226);
+          }
+      }
+
+      @media screen and (max-width: 576px) {
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: scroll;
+      }
+    }
+    
+    
+    
+    .btn-form {
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      border: none;
+      background-color: rebeccapurple;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+      margin-bottom: 30px;
+
+      &:hover{
+        opacity: 0.9;
+      }
+    }
+  }

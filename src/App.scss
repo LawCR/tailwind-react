@@ -1,0 +1,26 @@
+// @import './styles/index.scss';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+body {
+    height: 100vh;
+    
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.5)
+    ),
+     url("https://images.pexels.com/photos/3629227/pexels-photo-3629227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: cover;
+    background-position: center;
+
+
+    // background: rgb(161,36,36);
+    // background: linear-gradient(180deg, rgba(161,36,36,1) 0%, rgba(22,18,13,1) 100%, rgba(69,229,252,1) 100%);
+
+}

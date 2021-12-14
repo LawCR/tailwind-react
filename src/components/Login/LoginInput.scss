@@ -1,0 +1,43 @@
+.formInput {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    
+    input {
+        padding: 8px;
+        margin: 10px 0px;
+        border-radius: 6px;
+        border: 1px solid gray;
+    
+        &:hover{
+            background-color: #ffffff90;
+        }
+    
+        &:invalid[focused="true"]{
+            border: 1px solid red;
+            background-color: rgba($color: rgb(226, 166, 166), $alpha: 1);
+            color: black;
+        }
+        
+        &:invalid[focused="true"] ~ span {
+            display: block;
+        }
+    
+    }
+    
+    label {
+        font-size: 12px;
+        color: black;
+    }
+    
+    span{
+        font-size: 12px;
+        padding: 2.5px;
+        color: red;
+        margin-bottom: 4px;
+        display: none;
+    }
+    
+}
+
+
