@@ -19,6 +19,19 @@ const Navbar = () => {
                     >
                         Logo
                     </Link>
+                    <NavLink 
+                        className={ ({isActive}) => "nav-left__logo " + (isActive ? 'text-white' : '') }
+                        to="/cards"
+                    >
+                        Card
+                    </NavLink>
+                    
+                    <NavLink 
+                        className={ ({isActive}) => "nav-left__logo " + (isActive ? 'text-white' : '') }
+                        to="/detalle"
+                    >
+                        Detalle
+                    </NavLink>
                 </div>
                 {/* Zona de la derecha del nav */}
                 <div className='nav-right'>
