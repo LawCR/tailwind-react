@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { cards } from '../../data/cards'
+import { cards, OPCIONES } from '../../data/cards'
 import useSelect from '../../Hooks/useSelect'
 import { getCardByCategory } from '../helpers/getByCategory'
 import Card from './Card'
+import Tabla from './Tabla'
 
 
 const Cards = () => {
     const {category} = useParams()
     const navigate = useNavigate()
 
-    const OPCIONES = [
-        {value: 'shonen', label: 'Shonen'},
-        {value: 'poderes', label: 'Poderes'},
-        {value: 'accion', label: 'Acción'},
-        {value: 'aventura', label: 'Aventura'},
-        {value: 'comedia', label: 'Comedia'},
-        {value: 'romance', label: 'Romance'},
-    ]
+    const [vistaCard, setVistaCard] = useState(false)
+
+    const cambioVista = (e) => {
+        e.preventDefault()
+        setVistaCard(!vistaCard)
+    }
 
     const [categoria, SelectCategoria ] = useSelect('', OPCIONES)
     useEffect(() => {
@@ -33,12 +32,27 @@ const Cards = () => {
         const cardsCat = getCardByCategory(category)
         return (
             <div className='container mx-auto flex flex-col items-center'>
-                <SelectCategoria />
+                <div className='flex w-full flex-row justify-center'>
+                    <SelectCategoria />
+                    <div className='ml-1 flex items-end '>
+                        <button onClick={cambioVista} className='bg-gray-700 px-2 py-2 rounded-lg text-white hover:bg-gray-600'>
+                           { vistaCard ? 'Ver en Cartas' : ' Ver en Lista' }
+                        </button>
+                    </div>
+                </div>
                 <div className='container mx-auto flex items-center justify-center flex-wrap '>
                     {
-                        cardsCat.map( card => (
-                            <Card key={card.id} id={card.id} titulo={card.titulo} desc={card.desc} img={card.img} category={card.category} />
-                        ))
+                        vistaCard 
+                        ? 
+                            <Tabla cards={cardsCat} />
+                        : 
+                        <div className='flex items-center justify-center flex-wrap'>
+                            {
+                                cardsCat.map( card => (
+                                    <Card key={card.id} id={card.id} titulo={card.titulo} desc={card.desc} img={card.img} category={card.category} />
+                                ))
+                            }
+                        </div>
                     }
                 </div>
             </div>
@@ -46,15 +60,28 @@ const Cards = () => {
     }
     
     return (
-        <div className='container mx-auto flex flex-col items-center'>
-            <SelectCategoria />
-            <div className='flex items-center justify-center flex-wrap'>
-                {
-                    cards.map( card => (
-                        <Card key={card.id} id={card.id} titulo={card.titulo} desc={card.desc} img={card.img} category={card.category} />
-                    ))
-                }
+        <div className='container mx-auto flex flex-col items-start'>
+            <div className='flex w-full flex-row justify-center'>
+                <SelectCategoria />
+                <div className='ml-1 flex items-end '>
+                    <button onClick={cambioVista}  className='bg-gray-700 px-2 py-2 rounded-lg text-white hover:bg-gray-600'>
+                        { vistaCard ? 'Ver en Cartas' : ' Ver en Lista' }
+                    </button>
+                </div>
             </div>
+            {
+                vistaCard 
+                ? 
+                    <Tabla cards={cards} />
+                : 
+                <div className='flex items-center justify-center flex-wrap'>
+                    {
+                        cards.map( card => (
+                            <Card key={card.id} id={card.id} titulo={card.titulo} desc={card.desc} img={card.img} category={card.category} />
+                        ))
+                    }
+                </div>
+            }
         </div>
     )
 }

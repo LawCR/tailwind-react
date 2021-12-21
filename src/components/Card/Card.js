@@ -38,7 +38,7 @@ const Categorias = ({category, index}) => {
         // <span className='inline-block bg-gray-200 hover:bg-gray-300 hover:scale-y-105 rounded-full px-3 py-1 text-sm font-semibold text-gray-500 hover:text-gray-600 cursor-pointer mr-2  '>
         //     #{category}
         // </span>
-        <div className='inline-block mr-3 bg-gray-200 px-2 py-1 rounded-full shadow-md hover:scale-105 cursor-pointer' key={index}>
+        <div className='inline-block mr-2 mt-1 sm:mt-0 bg-gray-200 px-2 py-1 rounded-full shadow-md hover:scale-105 cursor-pointer' key={index}>
             <Link to={`/cards/${category}`} className='text-sm font-semibold text-indigo-600 hover:text-indigo-500' >#{category} </Link>  
         </div>
     )

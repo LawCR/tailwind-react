@@ -7,6 +7,7 @@ import Navbar from '../components/ui/Navbar'
 import Detalle from '../components/Detalle/Detalle'
 import CardDetalle from '../components/Card/CardDetalle'
 import NoMatch from '../components/NoMatch'
+import Table from '../components/Table/Table'
 
 // Rutas de la aplicación
 const AppRoutes = () => {
@@ -25,6 +26,7 @@ const AppRoutes = () => {
                     <Route path="/card/:id" element={<CardDetalle />} />
 
                     <Route path="/detalle" element={<Detalle />} />
+                    <Route path="/tabla" element={<Table />} />
 
 
                     <Route path="*" element={<NoMatch />} />
