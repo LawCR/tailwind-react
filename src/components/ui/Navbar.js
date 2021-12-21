@@ -25,6 +25,12 @@ const Navbar = () => {
                     >
                         Card
                     </NavLink>
+                    <NavLink 
+                        className={ ({isActive}) => "nav-left__logo " + (isActive ? 'text-white' : '') }
+                        to="/form"
+                    >
+                        Formulario
+                    </NavLink>
                     
                     {/* <NavLink 
                         className={ ({isActive}) => "nav-left__logo " + (isActive ? 'text-white' : '') }
